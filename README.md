@@ -23,6 +23,8 @@ NOTE: If you have corrected text in .txt format skip xml conversion.
 
 ```bash
 git clone https://github.com/DigitLib/ocr-correction.git
+```
+```bash
 cd ocr-correction
 ```
 
@@ -32,8 +34,10 @@ python -m venv .venv
 ```
 3. Install packages
 ```bash
-$ source envname/bin/activate
-(envname) $
+source .venv/bin/activate
+```
+(.venv) $
+```bash
 pip install pypdf2 lxml
 ```
 
@@ -45,13 +49,15 @@ From TEI xml use [02-convert-xml.py](02-convert-xml.py)
 
 NOTE: Lines can be different in extracted text, maybe you need to merge them into one line only. For this use [03-merge-lines.py](03-merge-lines.py)
 
-### Create a [file_list.csv](file_list.csv) file (see example)
+### Create a file_list.csv file
 1. Export a list of files in dir to .txt file
 ```bash
 ls /path/to/raw/dir > raw.txt
+```
+```bash
 ls /path/to/corr/dir > corr.txt
 ```
-2. Open an empty spreadsheet file and copy content from created .txt files in two raws
+2. Open an empty spreadsheet file and copy content from created .txt files in two raws - [see example](file_list.csv)
 3. Check that files are correspond in both dirs
 4. Create a dataset in jsonl format using [04-create-dataset.py](04-create-dataset.py)
 5. Login to your HuggingFace, create a dataset page and upload json file.
